@@ -1,0 +1,11 @@
+<%= render '/common/nav' %>
+
+<h4><%= @toy.name %></h4>
+
+<p><%= @toy.description %></p>
+
+<p><%= @toy.date %></p>
+
+<p><%= @toy.user %></p>
+
+<p><%= link_to('EDIT', edit_toy_path(@toy.id)) %></p>

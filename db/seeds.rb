@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+20.times do 
+  Toy.create(name: Faker::TvShows::BreakingBad.character, description: Faker::ChuckNorris.fact, date: Faker::Date.between(from: 1000.days.ago, to: Date.today))
+end

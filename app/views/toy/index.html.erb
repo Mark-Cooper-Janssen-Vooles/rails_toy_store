@@ -8,9 +8,13 @@
 <% if toy.user != nil %>
   <p>Users email:   <%= toy.user.email %></p>
 <% end %>
-
-<p><%= link_to('Show', toy_path(toy.id)) %> </p>
-<p><%= link_to('EDIT', edit_toy_path(toy.id)) %></p>
-<p><%= link_to('D E S T R O Y', toy_path(toy.id), method: :delete, data: { confirm: 'Are you sure?' }) %></p>
+<% if !toy.user_id.nil? %>
+  <p><%= link_to('See the TOY USER', user_toy_index_path(toy.user_id)) %></p>
+<% else %>
+  <p>THIS TOY HAS NO USER</p>
+<% end %>
+<p><%= link_to('Show', user_toy_path(toy.user_id, toy.id)) %> </p>
+<p><%= link_to('EDIT', edit_user_toy_path(toy.user_id, toy.id)) %></p>
+<p><%= link_to('D E S T R O Y', user_toy_path(toy.user_id, toy.id), method: :delete, data: { confirm: 'Are you sure?' }) %></p>
 <hr>
 <% end %>

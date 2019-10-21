@@ -1,0 +1,26 @@
+<%= render 'common/nav' %>
+
+<h1>Welcome to the TOY STORE</h1>
+
+<h4>List of Users: </h4>
+<% @user.each do |user| %>
+  Email: <%= user.email %><br>
+  Password: <%= user.password %><br>
+
+  <%= image_tag(user.picture, width: "100px") if user.picture.attached? %><br>
+
+  <%= link_to('show user', user_path(user.id))%>
+  <%= link_to('edit user', edit_user_path(user.id))%>
+  <%= link_to('Delete user', user_path(user.id), method: :delete, data: { confirm: 'Are you sure?' })%>
+  <br>
+
+  <% if user.toy.length > 0 %>
+  <strong>Toys:</strong><br> 
+    <% user.toy.each do | toy| %>
+      <%= toy.name %><br>
+    <% end %>
+  <% else %>
+  This user has no toys yet!
+  <% end %>
+  <br><br>
+<% end %>

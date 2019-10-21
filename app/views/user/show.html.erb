@@ -1,0 +1,27 @@
+<%= render 'common/nav'%>
+
+<h1>TOY user</h1>
+
+<% if @user.toy.length > 0 %>
+<h4>Toy info</h4>
+  <% @user.toy.each do |toy| %>
+    Name: <%= toy.name %><br>
+    Description: <%= toy.description %>
+    <%= link_to('show toy', user_toy_path(@user.id, toy.id))%>
+    <%= link_to('edit toy', edit_user_toy_path(@user.id, toy.id))%>
+    <%= link_to('delete toy', user_toy_path(@user.id, toy.id), method: :delete, data: { confirm: 'Are you sure?' }) %>
+    <br><br>
+  <% end %>
+<% else %>
+  <p>user has no toys!</p>
+<% end %>
+<%= link_to('new toy', new_user_toy_path(@user.id))%>
+<h4>User info</h4>
+<%= @user.email %><br>
+<%= @user.password %>
+
+<p><%= link_to('Delete user', user_path(@user.id), method: :delete, data: { confirm: 'Are you sure?' })%></p>
+<br>
+
+<p><%= link_to('Back', root_path)%></p>
+

@@ -1,0 +1,10 @@
+<%= render 'common/nav' %>
+
+<h1>Create a new user</h1>
+
+<% @users.each do |user|%>
+  EMAIL: <%= user.email %><br>
+  ID: <%= user.id %><br><br>
+<% end %>
+
+<%= render 'form' %>

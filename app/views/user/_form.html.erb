@@ -1,0 +1,14 @@
+<%= form_with(url: "/user", model: @user, local: true) do |f| %>
+
+<%= f.label :email %><br>
+<%= f.text_field :email %><br>
+
+<%= f.label :password %><br>
+<%= f.password_field :password %><br>
+
+<%= f.label :picture %><br>
+<%= f.file_field :picture, accept:
+  'image/png,image/gif,image/jpeg,image/jpg' %><br>
+
+<%= f.submit %>
+<% end %>

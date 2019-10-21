@@ -1,3 +1,3 @@
 class Manufacturer < ApplicationRecord
-  has_many :toys
+  has_many :toy
 end

@@ -8,6 +8,23 @@
 
 require 'faker'
 
-20.times do 
-  Toy.create(name: Faker::TvShows::BreakingBad.character, description: Faker::ChuckNorris.fact, date: Faker::Date.between(from: 1000.days.ago, to: Date.today))
+10.times do 
+  User.create(
+    email: Faker::Internet.email,
+    password: Faker::Creature::Dog.name
+  )
+
+  Manufacturer.create(
+    name: "Manufacturer + " + Faker::Name.unique.name,
+    location: "Melbourne"
+  )
+end
+
+10.times do 
+  Toy.create(
+    name: Faker::TvShows::BreakingBad.character, description: Faker::ChuckNorris.fact, 
+    date: Faker::Date.between(from: 1000.days.ago, to: Date.today), 
+    user_id: rand(1..10),
+    manufacturer_id: rand(1..10)
+  )
 end

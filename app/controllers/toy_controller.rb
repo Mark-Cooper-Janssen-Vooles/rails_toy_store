@@ -25,6 +25,7 @@ class ToyController < ApplicationController
 
   def show
     @toy = Toy.find(params[:id])
+    @user = @toy.user
   end
 
   def destroy
